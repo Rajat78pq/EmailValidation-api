@@ -1,5 +1,6 @@
 import express,{Request,Response} from 'express';
 import dotnet from 'dotenv';
+import UserportalRoutes from './Routes/UserPortalRoutes/UserPortal.routes';
 
 dotnet.config();
 const app = express();
@@ -12,3 +13,8 @@ app.get('/', (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+app.use(express.json());
+app.use('/api', UserportalRoutes);
+
+export default app;
