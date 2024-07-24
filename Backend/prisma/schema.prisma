@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model adminLogin {
+  Id Int @id @default(autoincrement())
+  Email String @unique
+  Password String
+}
+
+model UserPortal {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  password   String
+  role       String
+  companies Company[]
+  companyUsers CompanyUsers[]
+  teamUser TeamUsers[]
+}
+
+model Company {
+  id         Int      @id @default(autoincrement())
+  name       String
+  accesstoken String
+  users CompanyUsers[]
+  teams      Team[]
+  userId     Int
+  user       UserPortal @relation(fields: [userId], references: [id])
+}
+
+model CompanyUsers {
+  id         Int      @id @default(autoincrement())
+  company Company @relation(fields: [companyId], references: [id])
+  companyId Int
+  user       UserPortal @relation(fields: [userId], references: [id])
+  userId     Int
+}
+
+model Team {
+  id         Int      @id @default(autoincrement())
+  name       String
+  company Company @relation(fields: [companyId], references: [id])
+  companyId Int
+}
+
+model TeamUsers {
+  id         Int      @id @default(autoincrement())
+  user UserPortal @relation(fields: [userId], references: [id])
+  userId Int
+}
