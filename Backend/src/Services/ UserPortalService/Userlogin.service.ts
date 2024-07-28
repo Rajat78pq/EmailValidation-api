@@ -2,6 +2,10 @@ import prisma from "../../Configs/db.config";
 
 export default class UserLoginService {
 
+    static async getUserById(id: number) {
+        return await prisma.userPortal.findUnique({ where: { id } });
+    }
+
     static async getUser() {
         return await prisma.userPortal.findMany();
     }

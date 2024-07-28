@@ -3,6 +3,12 @@ import { Request, Response } from "express";
 
 export default class UserLoginController {
 
+    static async getUserById(req: Request, res: Response) {
+        const id = parseInt(req.params.id);
+        const result = await UserLoginService.getUserById(id)
+        res.send(result)
+    }
+
     static async getUser(req: Request, res: Response) {
 
         const result = await UserLoginService.getUser()

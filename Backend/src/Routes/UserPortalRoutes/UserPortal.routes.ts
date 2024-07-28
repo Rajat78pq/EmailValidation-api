@@ -4,9 +4,10 @@ import UserLoginController from '../../Controllers/UserPortalController/Userlogi
 
 const router = express.Router();
 
-router.get('/userportal/', UserLoginController.getUser);
-router.post('/userportal/', UserLoginController.createUser);
-router.put('/userportal/:id', UserLoginController.updateUser);
-router.delete('/userportal/:id', UserLoginController.deleteUser);
+router.get('/user/:id', UserLoginController.getUserById);
+router.get('/user', UserLoginController.getUser);
+router.post('/user', UserLoginController.createUser);
+router.put('/user/:id', UserLoginController.updateUser);
+router.delete('/user/:id', UserLoginController.deleteUser);
 
 export default router;

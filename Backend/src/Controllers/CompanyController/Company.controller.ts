@@ -2,6 +2,11 @@ import CompanyService from "../../Services/CompanyService/Company.service";
 import { Request, Response } from "express";
 
 export default class CompanyController {
+    static async getCompanyById(req: Request, res: Response) {
+        const id = parseInt(req.params.id);
+        const result = await CompanyService.getCompanyById(id);
+        res.send(result);
+    }
     static async getCompany(req: Request, res: Response) {
         const result = await CompanyService.getCompany();
         res.send(result);
