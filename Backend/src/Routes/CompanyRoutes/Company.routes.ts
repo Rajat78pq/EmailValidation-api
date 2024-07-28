@@ -3,6 +3,7 @@ import CompanyController from '../../Controllers/CompanyController/Company.contr
 
 const router = express.Router();
 
+router.get('/company/:id', CompanyController.getCompanyById);
 router.get('/company', CompanyController.getCompany);
 router.post('/company', CompanyController.createCompany);
 router.put('/company/:id', CompanyController.updateCompany);
