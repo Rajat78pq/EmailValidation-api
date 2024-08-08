@@ -1,3 +1,5 @@
+import { layout } from '@chakra-ui/system';
+import path from 'path';
 import React from 'react';
 
 // Admin Imports
@@ -9,6 +11,8 @@ import {
   MdBarChart,
   MdPerson,
   MdLock,
+  MdBusiness,
+  MdGroup,
 } from 'react-icons/md';
 
 const routes = [
@@ -45,10 +49,16 @@ const routes = [
     icon: <MdLock className="h-6 w-6" />,
   },
   {
-    name: 'RTL Admin',
-    layout: '/rtl',
-    path: 'rtl-default',
-    icon: <MdHome className="h-6 w-6" />,
+    name: 'Company List',
+    layout: '/admin',
+    path: 'company-list',
+    icon: <MdBusiness className="h-6 w-6" />
   },
+  {
+    name: 'Teams',
+    layout: '/admin',
+    path: 'teams',
+    icon: <MdGroup className="h-6 w-6" />
+  }
 ];
 export default routes;
