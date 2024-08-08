@@ -24,10 +24,12 @@ app.use('/api', UserportalRoutes);
 app.use('/api', CompanyRoutes);
 app.use('/api', CompanyUserRoutes);
 app.use('/api', TeamRoutes);
+ 
 
 const corOption = {
   origin: 'http://localhost:3000'
 }
 app.use(cors(corOption))
+ 
 
 export default app;
