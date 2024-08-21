@@ -36,7 +36,7 @@ export default function Teams() {
                         <tr className="!border-px !border-gray-400">
                             <th className="cursor-pointer border-b-[1px] border-gray-200 pt-4 pb-2 pr-4 text-start">ID</th>
                             <th className="cursor-pointer border-b-[1px] border-gray-200 pt-4 pb-2 pr-4 text-start">Team Name</th>
-                            <th className="cursor-pointer border-b-[1px] border-gray-200 pt-4 pb-2 pr-4 text-start">Company Id</th>
+                            <th className="cursor-pointer border-b-[1px] border-gray-200 pt-4 pb-2 pr-4 text-start">Created By Company</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +48,7 @@ export default function Teams() {
                                         <tr>
                                             <td key={team.id} className="min-w-[150px] border-white/0 py-3  pr-4">{team.id}</td>
                                             <td key={team.id} className="min-w-[150px] border-white/0 py-3  pr-4">{team.name}</td>
-                                            <td key={team.id} className="min-w-[150px] border-white/0 py-3  pr-4">{team.companyId}</td>
+                                            <td key={team.id} className="min-w-[150px] border-white/0 py-3  pr-4">{team.company.name}</td>
                                         </tr>
                                     ))
                                 }

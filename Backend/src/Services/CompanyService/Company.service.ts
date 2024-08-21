@@ -6,7 +6,7 @@ export default class CompanyService {
     }
 
     static async getCompany() {
-        return await prisma.company.findMany();
+        return await prisma.company.findMany({ include: { user: true } });
     }
 
     static async createCompany(data: any) {

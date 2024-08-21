@@ -5,6 +5,8 @@ import UserportalRoutes from './Routes/UserPortalRoutes/UserPortal.routes';
 import CompanyRoutes from './Routes/CompanyRoutes/Company.routes';
 import CompanyUserRoutes from './Routes/CompanyUserRoutes/CompanyUser.routes';
 import TeamRoutes from './Routes/TeamRoutes/Team.routes';
+import DataScrapeRoute from './Routes/DisposalEmailRoutes/DisposalEmail.routes'
+import DataScrap from './Utils/DataScrapper/DataScrap';
 
 dotnet.config();
 const app = express();
@@ -24,9 +26,13 @@ app.use('/api', UserportalRoutes);
 app.use('/api', CompanyRoutes);
 app.use('/api', CompanyUserRoutes);
 app.use('/api', TeamRoutes);
+app.use('/api', DataScrapeRoute);
+
+DataScrap();
 
 const corOption = {
-  origin: 'http://localhost:3000'
+  origin: ['http://localhost:3000', 'http://localhost:4000'],
+
 }
 app.use(cors(corOption))
 

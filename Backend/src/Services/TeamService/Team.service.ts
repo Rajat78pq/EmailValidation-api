@@ -5,7 +5,7 @@ export default class TeamService {
         return await prisma.team.findUnique({ where: { id } });
     }
     static async getTeam() {
-        return await prisma.team.findMany();
+        return await prisma.team.findMany({ include: { company: true } });
     }
 
     static async createTeam(data: any) {

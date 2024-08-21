@@ -73,3 +73,8 @@ model AccessToken {
   companyId Int        @unique
   company   Company    @relation(fields: [companyId], references: [id])
 }
+
+model DisposalEmailTable {
+  id    Int    @id @default(autoincrement())
+  email String
+}
